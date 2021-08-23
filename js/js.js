@@ -45,13 +45,14 @@ function start(){//Inicio da função start()
         moveFundo();
         moveJogador();
         moveInimigo1();
+        moveInimigo2();
 
     } //Fim da Funçao gameLoop
 
     //Função movimenta o fundoGame
     function moveFundo(){
         esquerda = parseInt($("#fundoGame").css ("background-position"));
-        $("#fundoGame").css("background-position",  esquerda-3);
+        $("#fundoGame").css("background-position",  esquerda-2);
     };
 
     //Fim da função movimenta o fundoGame
@@ -83,16 +84,26 @@ function start(){//Inicio da função start()
     }//Fim da função moveJogador
 
     function moveInimigo1() { //Função movimentaçao inimigo 1
-        posicaoY = parseInt($("#inimigo1").css("left"), 10);
+        posicaoX = parseInt($("#inimigo1").css("left"));
         $("#inimigo1").css("left", posicaoX-velocidade);
         $("#inimigo1").css("top",posicaoY);
 
-            if(posicaoY <=0) {
-                posicaoY = parseInt(Math.random()* 344);
+            if(posicaoX <= 0) {
+                posicaoY = parseInt(Math.random() * 334);
                 $("#inimigo1").css("left",694);
                 $("#inimigo1").css("top",posicaoY);
             }
     }// FIM da função movimentaçao inimigo 1
+
+    function moveInimigo2() {//Função movimentaçao inimigo 2
+        let velocidade = 3;
+        posicaoX = parseInt($("#inimigo2").css("left"));
+        $("#inimigo2").css("left",posicaoX-velocidade);
+        
+            if(posicaoX <= 0) {
+                $("#inimigo2").css("left", 775);
+            }
+    }// FIM da função movimentaçao inimigo 2
 
 } //Fim da função start
 

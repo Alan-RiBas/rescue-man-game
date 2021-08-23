@@ -18,6 +18,9 @@ function start(){//Inicio da função start()
 
     jogo.pressionou = [];
 
+    var velocidade = 5;
+    var posicaoY = parseInt(Math.random * 334);
+
     //Váriaveis principais
 
     //verifica se uma tecla foi pressionada
@@ -41,6 +44,7 @@ function start(){//Inicio da função start()
 
         moveFundo();
         moveJogador();
+        moveInimigo1();
 
     } //Fim da Funçao gameLoop
 
@@ -53,20 +57,42 @@ function start(){//Inicio da função start()
     //Fim da função movimenta o fundoGame
 
     function moveJogador(){
+
         if(jogo.pressionou[TECLA.W]){
             var topo = parseInt($("#jogador").css("top"));
             $("#jogador").css("top", topo-10);
+                
+                if(topo <= 0){
+                    $("#jogador").css("top", topo+10);
+                }
         };
 
         if(jogo.pressionou[TECLA.S]){
             var topo = parseInt($("#jogador").css("top"));
             $("#jogador").css("top", topo+10);
+
+            if(topo >= 434){
+                $("#jogador").css("top", topo-10);
+            }
+        
         }
 
         if(jogo.pressionou[TECLA.D]){
             //chama função disparo
         }
     }//Fim da função moveJogador
+
+    function moveInimigo1() { //Função movimentaçao inimigo 1
+        posicaoY = parseInt($("#inimigo1").css("left"), 10);
+        $("#inimigo1").css("left", posicaoX-velocidade);
+        $("#inimigo1").css("top",posicaoY);
+
+            if(posicaoY <=0) {
+                posicaoY = parseInt(Math.random()* 344);
+                $("#inimigo1").css("left",694);
+                $("#inimigo1").css("top",posicaoY);
+            }
+    }// FIM da função movimentaçao inimigo 1
 
 } //Fim da função start
 

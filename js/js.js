@@ -6,9 +6,8 @@ function start(){//Inicio da função start()
     $("#fundoGame").append("<div id='inimigo2'></div>");
     $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
 
-} //Fim da função start
 
-//Váriaveis principais
+    //Váriaveis principais
 
 var jogo = {}
 
@@ -16,8 +15,17 @@ var jogo = {}
 
 jogo.timer = setInterval(loop, 30);
 
-function gameLoop() {
+function loop() {
 
     moveFundo();
 
 } //Fim da Funçao gameLoop
+    
+//Função movimenta o fundoGame
+function moveFundo(){
+    esquerda = parseInt($("#fundoGame").css("background-position"));
+    $("#fundoGame").css("background-position", esquerda-3);
+}
+
+} //Fim da função start
+

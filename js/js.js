@@ -428,3 +428,12 @@ function explosao1(inimigo1X,inimigo1Y) {// Função Explosão 1
     
 
 } //Fim da função starts
+
+
+		
+function reiniciaJogo() {//Reinicia o Jogo
+	somGameover.pause();
+	$("#fim").remove();
+	start();
+	
+} //Fim da função reiniciaJogo

@@ -48,6 +48,7 @@ function start(){//Inicio da função start()
         moveInimigo1();
         moveInimigo2();
         moveAmigo();
+        colisao();
 
     } //Fim da Funçao gameLoop
 
@@ -149,6 +150,26 @@ function start(){//Inicio da função start()
         
     } //FIM função disparo
 
+    function colisao() {//Função colisao
+        var colisao1 = ($("#jogador").collision($("#inimigo1")));
+        //jogador com o inimigo 1 com
+        console.log(colisao1);
+
+        if(colisao1.length>0){
+            inimigo1X = parseInt($("#inimigo1").css("left"));
+	        inimigo1Y = parseInt($("#inimigo1").css("top"));
+	        explosao1(inimigo1X,inimigo1Y);
+
+	        posicaoY = parseInt(Math.random() * 334);
+	        $("#inimigo1").css("left",694);
+	        $("#inimigo1").css("top",posicaoY);
+	
+        }
+
+    }//Fim da função colisao
     
+    
+
+
    
 } //Fim da função starts
